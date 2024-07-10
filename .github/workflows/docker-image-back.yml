@@ -28,7 +28,7 @@ jobs:
       with:
         context: ./backend
         push: true
-        tags: jovan99djokic/full_stack:1.0
+        tags: jovan99djokic/app_back:1.0
 
     - name: Log out from Docker Hub
       run: docker logout
