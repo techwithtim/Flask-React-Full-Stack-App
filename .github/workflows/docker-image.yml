@@ -5,9 +5,7 @@ on:
     branches: [ "Test" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -23,12 +21,12 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v5
-      with:
-        context: .
-        push: true
-        tags: jovan99djokic/full_stack:1.0
+    - name: Build Docker images
+      run: docker compose build
+
+    - name: Push Docker images
+      run: |
+        docker compose push
 
     - name: Log out from Docker Hub
       run: docker logout
