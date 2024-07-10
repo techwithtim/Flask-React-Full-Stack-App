@@ -1,4 +1,4 @@
-name: Docker Compose CI
+name: Docker Image CI
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
+      
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
@@ -21,10 +21,12 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push Docker images
+    - name: Build Docker images
+      run: docker compose build
+
+    - name: Push Docker images
       run: |
-        docker-compose build
-        docker-compose push
-        
+        docker compose push
+
     - name: Log out from Docker Hub
       run: docker logout
