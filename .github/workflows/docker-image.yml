@@ -22,11 +22,11 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker images
-      run: docker compose build
+      run: docker compose -f docker-compose.yml build
 
     - name: Push Docker images
       run: |
-        docker compose push
+        docker compose -f docker-compose.yml push
 
     - name: Log out from Docker Hub
       run: docker logout
