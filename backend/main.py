@@ -18,7 +18,7 @@ def create_contact():
 
     if not first_name or not last_name or not email:
         return (
-            jsonify({"message": "You must include a first name, last name and email"}),
+            jsonify({"message": "Please include a first name, last name and email"}),
             400,
         )
 
