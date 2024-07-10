@@ -26,7 +26,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
-        context: .
+        context: ./backend
         push: true
         tags: jovan99djokic/full_stack:1.0
 
